@@ -44,7 +44,7 @@ func TestNewUser(t *testing.T) {
 			email:        "test@example.com",
 			passwordHash: "",
 			wantErr:      true,
-			expectedErr:  user.ErrInvalidPassword,
+			expectedErr:  user.ErrEmptyPasswordHash,
 		},
 	}
 

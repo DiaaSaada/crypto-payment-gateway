@@ -6,9 +6,9 @@ import (
 )
 
 var (
-	ErrInvalidEmail    = errors.New("invalid email address")
-	ErrInvalidPassword = errors.New("password must be at least 8 characters")
-	ErrEmptyUsername   = errors.New("username cannot be empty")
+	ErrInvalidEmail       = errors.New("invalid email address")
+	ErrEmptyPasswordHash  = errors.New("password hash cannot be empty")
+	ErrEmptyUsername      = errors.New("username cannot be empty")
 )
 
 // User represents the user domain entity
@@ -30,7 +30,7 @@ func NewUser(username, email, passwordHash string) (*User, error) {
 		return nil, ErrInvalidEmail
 	}
 	if passwordHash == "" {
-		return nil, ErrInvalidPassword
+		return nil, ErrEmptyPasswordHash
 	}
 
 	now := time.Now()
